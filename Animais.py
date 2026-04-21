@@ -1,14 +1,20 @@
 def listarAnimais():
     if len(animais) == 0:
-        print("Não tem produtos cadastrados")
+        print("Não tem animais cadastrados")
     for p in animais:
-        print(f"{p['nome']}")
+       print(f"{p['nome']} - {p['tipo']} | {p['raca']} | {p['idade']} anos")
 
 
-def adicionarAnimais(animais):
-    if not animais["nome"]:
+def adicionarAnimais(animal):
+    if not animal.get("nome"):
         return False
-    animais.append(animais)
+    if not animal.get("idade"):
+        return False
+    if not animal.get("raca"):
+        return False
+    if not animal.get("tipo"):
+        return False
+    animais.append(animal)
     return True
 
 
@@ -19,7 +25,7 @@ def buscarAnimais(animaisNome):
     return None
 
 
-def atualizarAnimais(indice, produto):
+def atualizarAnimais(indice, animais):
     animais[indice] = animais
     return True
 
